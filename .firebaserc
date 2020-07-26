@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "slackdemo-e3bf9"
+  },
+  "targets": {
+    "slackdemo-e3bf9": {
+      "hosting": {
+        "learnfirebase": [
+          "slackdemo-e3bf9"
+        ]
+      }
+    }
+  }
+}
