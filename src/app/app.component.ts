@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +14,12 @@ export class AppComponent implements OnInit, OnDestroy {
   items: Observable<any[]>;
 
   userForm = new FormGroup({
-    name: new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    phone: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[1-9]+[0-9]*$/),
+    ]),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   constructor(private firestore: AngularFirestore) {

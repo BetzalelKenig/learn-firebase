@@ -1,29 +1,42 @@
-<div>Hello</div>
 
-<h1>Goog Day</h1>
+<div class="container">
+  <h1 class="text-center text-primary">Registration</h1>
+  <div class="row">
+    
+    <div class="form-group text-info ">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+        <label>
+          Name:
+          <input class="form-control" type="text" formControlName="name" />
+        </label>
 
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{ item.name }}
-    {{ item | json }}
-  </li>
-</ul>
+        <label>
+          Phone:
+          <input class="form-control" type="number" formControlName="phone" />
+        </label>
+        <label>
+          Email:
+          <input class="form-control" type="email" formControlName="email" />
+        </label>
+      </div>
+        <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="!userForm.valid"
+        >
+          Add User
+        </button>
+      </form>
+    </div>
+  </div>
 
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  
-  <label>
-    Name:
-    <input type="text" formControlName="name">
-  </label>
-
-  <label>
-    Phone:
-    <input type="number" formControlName="phone">
-  </label>
-  <label>
-    Email:
-    <input type="email" formControlName="email">
-  </label>
-  <button type="submit" [disabled]="!userForm.valid">Submit</button>
-</form>
-
+  <ul>
+    <li class="text text-success bg-warning" *ngFor="let item of items | async">
+      {{ item.name }} |
+      {{ item.phone }} |
+      {{ item.email }} 
+      
+    </li>
+  </ul>
+</div>
