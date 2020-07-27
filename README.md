@@ -1,4 +1,5 @@
 # [Learnfirebase](https://slackdemo-e3bf9.web.app/)
+[docs firebase](https://github.com/angular/angularfire/blob/master/docs/install-and-setup.md)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
