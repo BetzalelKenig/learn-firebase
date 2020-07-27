@@ -9,5 +9,21 @@
   </li>
 </ul>
 
-<input type="text" #user />
-<button (click)="addUser(user.value)">Add</button>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Phone:
+    <input type="number" formControlName="phone">
+  </label>
+  <label>
+    Email:
+    <input type="email" formControlName="email">
+  </label>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+
